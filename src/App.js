@@ -11,6 +11,7 @@ const App = () => {
            <Header/>
            <Navigation/>
            <Profile/>
+           <div>sgsdfdr</div>
         </div>
     );
 }
