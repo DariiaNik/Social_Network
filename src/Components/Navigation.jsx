@@ -1,13 +1,24 @@
 import React from 'react'
+import './Navigation.css'
 
 const Navigation = () =>{
     return(
         <nav className={'navigation'}>
-            <div><a>Profile</a></div>
-            <div><a>Message</a></div>
-            <div><a>News</a></div>
-            <div><a>Music</a></div>
-            <div><a>Settings</a></div>
+            <div className={'navigation_item'}>
+                <a>Profile</a>
+            </div>
+            <div className={'navigation_item'}>
+                <a>Message</a>
+            </div>
+            <div className={'navigation_item'}>
+                <a>News</a>
+            </div>
+            <div className={'navigation_item'}>
+                <a>Music</a>
+            </div>
+            <div className={'navigation_item'}>
+                <a>Settings</a>
+            </div>
         </nav>
     )
 }

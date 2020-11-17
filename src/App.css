@@ -7,35 +7,5 @@
   padding: 2% 20% 0 20%  ;
   grid-gap: 10px;
 }
-header{
-  background-color: #d9d8d8;
-  grid-area: h;
-  padding: 10px;
-}
-.logo{
-  height: 50px;
-  width: 50px;
-  margin-left: 20px;
-}
-.navigation{
-  background-color: #b8b6b6;
-  grid-area: n;
-  padding: 10px;
-}
-.navigation div{
-  padding: 10px;
-}
-.content{
-  background-color: lightpink;
-  grid-area: c;
-  padding: 10px;
 
-}
-.contentImage1{
-  width: 100%;
-  height: 250px;
-}
-.contentImage2{
-  width: 100px;
-  height: 100px;
-}
+
