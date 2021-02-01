@@ -1,0 +1,25 @@
+
+.navigation {
+  background-color: #b8b6b6;
+  grid-area: n;
+  padding: 10px;
+
+  div {
+    padding: 10px;
+  }
+}
+
+.navigation_item {
+  a {
+    color: #5d5d5d;
+    text-decoration: none;
+
+    &:hover {
+      color: #000000;
+    }
+  }
+  .active{
+    color: #000000;
+    font-size: larger;
+  }
+}
