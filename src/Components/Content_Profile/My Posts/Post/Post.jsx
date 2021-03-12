@@ -4,6 +4,12 @@ import Like from './Icons/icons8-heart.svg'
 
 
 const Post = (props) => {
+
+    let like = () => {
+        let id = props.id
+        props.countLikes(id)
+    }
+
     return (
         <div className={'post'}>
             <div className={'post_item'}>
@@ -14,7 +20,7 @@ const Post = (props) => {
                 </div>
             </div>
             <div className={'post_likes'}>
-                <img  className={'button_like'} src={Like} />
+                <img className={'button_like'} src={Like} onClick={like}/>
                 {props.likes}
             </div>
         </div>

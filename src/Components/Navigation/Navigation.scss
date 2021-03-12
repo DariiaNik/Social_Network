@@ -1,15 +1,16 @@
-
-.navigation {
+.sidebar {
   background-color: #b8b6b6;
   grid-area: n;
   padding: 10px;
+}
 
+.navigation {
   div {
     padding: 10px;
   }
 }
 
-.navigation_item {
+.navigation_item, {
   a {
     color: #5d5d5d;
     text-decoration: none;
@@ -18,8 +19,21 @@
       color: #000000;
     }
   }
-  .active{
+
+  .active {
     color: #000000;
     font-size: larger;
   }
+}
+
+.navigation_Friends {
+  margin-top: 50px;
+
+  .friend_title {
+    color: #515151;
+    text-align: center;
+    font-size: 30px;
+    padding: 5px;
+  }
+
 }
