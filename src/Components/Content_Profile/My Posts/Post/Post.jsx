@@ -7,7 +7,7 @@ const Post = (props) => {
 
     let like = () => {
         let id = props.id
-        props.countLikes(id)
+        props.dispatch({type:'COUNT-LIKES',outId:id})
     }
 
     return (

@@ -10,16 +10,13 @@ import {BrowserRouter} from "react-router-dom";
 let renderEntireTree = (state) => {
     ReactDOM.render(
         <BrowserRouter>
-            <React.StrictMode>
-                <App appState={state} addPost={store.addPost.bind(store)}  countLikes = {store.countLikes.bind(store)}/>
-            </React.StrictMode>
+            <App appState={state} dispatch={store.dispatch.bind(store)} />
         </BrowserRouter>,
         document.getElementById('root')
     );
 }
 
 renderEntireTree(store.getState());
-
 store.subscribe(renderEntireTree);
 
 // If you want to start measuring performance in your app, pass a function
