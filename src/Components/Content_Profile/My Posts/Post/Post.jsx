@@ -1,13 +1,15 @@
 import React from 'react'
 import './Post.scss'
 import Like from './Icons/icons8-heart.svg'
+import {likeActionCreator} from "../../../../redux/State";
+
 
 
 const Post = (props) => {
 
     let like = () => {
         let id = props.id
-        props.dispatch({type:'COUNT-LIKES',outId:id})
+        props.dispatch(likeActionCreator(id))
     }
 
     return (

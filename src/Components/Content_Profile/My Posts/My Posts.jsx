@@ -1,12 +1,10 @@
 import React from 'react'
 import './My Posts.scss'
 import Post from "./Post/Post";
+import {addPostActionCreator} from "../../../redux/State";
 
 
-/*let postsData = [
-    {id: 1, text:'HI,how are you?', likes:'125'},
-    {id: 2, text:'It\'s my first post', likes:'54'},
-]*/
+
 
 
 const My_Posts = (props) => {
@@ -18,7 +16,7 @@ const My_Posts = (props) => {
 
     let addPost = () => {
         let text = newPostElement.current.value;
-        props.dispatch({type:'ADD-POST',message:text});
+        props.dispatch(addPostActionCreator(text));
         newPostElement.current.value = '';
     }
 
