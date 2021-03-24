@@ -1,8 +1,7 @@
 import React from 'react'
 import './Post.scss'
 import Like from './Icons/icons8-heart.svg'
-import {likeActionCreator} from "../../../../redux/State";
-
+import {likeActionCreator} from "../../../../redux/profileReducer";
 
 
 const Post = (props) => {

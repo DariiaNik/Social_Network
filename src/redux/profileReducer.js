@@ -1,7 +1,14 @@
 const ADD_POST = 'ADD-POST';
 const COUNT_LIKES = 'COUNT-LIKES';
 
-const profileReducer = (state, action) => {
+let initialState = {
+    posts: [
+        {id: 2, text: 'HI,how are you?', likes: 125},
+        {id: 1, text: 'It\'s my first post', likes: 54},
+    ]
+}
+
+const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST:
             if (action.text !== '') {
@@ -22,10 +29,12 @@ const profileReducer = (state, action) => {
             }
             break;
         default:
-            return this.state;
+            return state;
     }
     return state;
 
 }
+export const addPostActionCreator = (text) => ({type: ADD_POST, text: text})
+export const likeActionCreator = (id) => ({type: COUNT_LIKES, outId: id})
 
 export default profileReducer;

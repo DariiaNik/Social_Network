@@ -4,9 +4,6 @@ import {act} from "@testing-library/react";
 import dialogsReducer from "./dialogsReducer";
 import sidebarReducer from "./sidebarReducer";
 
-const ADD_POST = 'ADD-POST';
-const COUNT_LIKES = 'COUNT-LIKES';
-const NEW_MESSAGE = 'NEW-POST';
 
 let store = {
     _state: {
@@ -78,37 +75,7 @@ let store = {
     },
     _callSubscriber() {
     },
-    // _addPost(text) {
-    //     if (text !== '') {
-    //         let newPost = {
-    //             id: this._state.profilePage.posts[0].id + 1,
-    //             text: text,
-    //             likes: 0
-    //         }
-    //         this._state.profilePage.posts.unshift(newPost);
-    //         this._callSubscriber(this._state);
-    //     }
-    // },
-    // _countLikes(outId) {
-    //     for (let i = 0; i < this._state.profilePage.posts.length; i++) {
-    //         let stateId = this._state.profilePage.posts[i].id;
-    //         if (outId === stateId) {
-    //             this._state.profilePage.posts[i].likes = (this._state.profilePage.posts[i].likes + 1)
-    //             this._callSubscriber(this._state);
-    //             return;
-    //         }
-    //     }
-    // },
-    // _newMessage(message){
-    //     if (message !== '') {
-    //         let newMessage = {
-    //             id: this._state.messagesPage.messages[this._state.messagesPage.messages.length-1].id + 1,
-    //             message: message
-    //         }
-    //         this._state.messagesPage.messages.push(newMessage);
-    //         this._callSubscriber(this._state);
-    //     }
-    // },
+
     subscribe(observer) {
         this._callSubscriber = observer;
     },
@@ -116,28 +83,12 @@ let store = {
         return this._state
     },
     dispatch(action) {
-
         this._state.profilePage = profileReducer(this._state.profilePage, action);
         this._state.messagesPage = dialogsReducer(this._state.messagesPage, action);
         this._state.sidebar = sidebarReducer(this._state.sidebar, action);
 
         this._callSubscriber(this._state);
-
-        // switch (action.type) {
-        //     case ADD_POST:
-        //         this._addPost(action.text);
-        //         break;
-        //     case COUNT_LIKES:
-        //         this._countLikes(action.outId);
-        //         break;
-        //     case NEW_MESSAGE:
-        //         this._newMessage(action.message);
-        //         break;
-        // }
     }
 }
 
-export const  addPostActionCreator = (text) => ({type: ADD_POST, text: text})
-export const  likeActionCreator = (id) => ({type: COUNT_LIKES,outId:id})
-export const  newMessageActonCreate = (message) => ({type:NEW_MESSAGE,message:message})
 export default store;
