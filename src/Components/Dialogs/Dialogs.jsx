@@ -2,22 +2,21 @@ import React from 'react';
 import './Dialogs.scss';
 import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
-import {newMessageActonCreate} from "../../redux/dialogsReducer";
 
 
 const Dialogs = (props) => {
 
     let dialogsElement =
-        props.state.dialogs.map(dialog => (<Dialog name={dialog.name} id={dialog.id} photo={dialog.photo}/>))
+        props.dialogs.map(dialog => (<Dialog name={dialog.name} id={dialog.id} photo={dialog.photo}/>))
 
     let messageElement =
-        props.state.messages.map(message => <Message message={message.message}/>)
+        props.messages.map(message => <Message message={message.message}/>)
 
     let addMessage = React.createRef();
 
     let newMessageElement = () => {
         let message = addMessage.current.value;
-        props.dispatch(newMessageActonCreate(message));
+        props.newMessageElement(message);
         addMessage.current.value = '';
     }
     return (

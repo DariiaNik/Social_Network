@@ -8,7 +8,7 @@ const Post = (props) => {
 
     let like = () => {
         let id = props.id
-        props.dispatch(likeActionCreator(id))
+        props.like(id);
     }
 
     return (
