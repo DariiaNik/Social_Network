@@ -5,20 +5,24 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
+import StoreContext from "./StoreContext";
 
 
 let renderEntireTree = (state) => {
     ReactDOM.render(
         <BrowserRouter>
-            <App state={state} dispatch={store.dispatch.bind(store)} store={store} />
-        </BrowserRouter>,
+            <StoreContext.Provider value={store}>
+                <App/>
+            </StoreContext.Provider>
+        </BrowserRouter>
+        ,
         document.getElementById('root')
     );
 }
 
 renderEntireTree(store.getState());
 
-store.subscribe(()=>{
+store.subscribe(() => {
     renderEntireTree(store.getState())
 });
 
