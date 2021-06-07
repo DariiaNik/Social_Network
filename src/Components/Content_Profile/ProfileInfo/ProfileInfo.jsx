@@ -1,8 +1,17 @@
 import React from 'react'
 import './ProfileInfo.scss'
+import Preloader from "../../common/preloader/preloader";
+import facebook from '../../../Pictures/icons8-facebook-64.png'
+import instagram from '../../../Pictures/icons8-instagram-64.png'
+import twitter from '../../../Pictures/icons8-twitter-64.png'
 
 
-const ProfileInfo = () => {
+const ProfileInfo = (props) => {
+
+    if (!props.profile) {
+        return <Preloader/>
+
+    }
     return (
         <div>
             <div className={'content_main'}>
@@ -11,10 +20,15 @@ const ProfileInfo = () => {
             </div>
             <div className={'content_profile'}>
                 <img className={'content_profileImage'}
-                     src='https://png.pngtree.com/png-clipart/20190827/ourlarge/pngtree-hand-drawn-minimalist-line-woman-avatar-png-image_1701001.jpg'/>
+                     src={props.profile.photos.small}/>
                 <div className={'content_bio'}>
-                    <h3>Dariia Nikolaieva</h3>
-                    <p>Hello,I am 25</p>
+                    <h3>{props.profile.fullName}</h3>
+                    <p>{props.profile.aboutMe}</p>
+                </div>
+                <div className={'content_contact'}>
+                    <div><a href={props.profile.contacts.facebook?.match(/http/i)? props.profile.contacts.facebook: ('https://'+props.profile.contacts.facebook)}><img src={facebook}/></a></div>
+                    <div><a href={props.profile.contacts.instagram?.match(/http/i)? props.profile.contacts.instagram: ('https://'+props.profile.contacts.instagram)}> <img src={instagram}/></a></div>
+                    <div><a href={props.profile.contacts.twitter?.match(/http/i)? props.profile.contacts.twitter: ('https://'+props.profile.contacts.twitter)}> <img src={twitter}/></a></div>
                 </div>
             </div>
         </div>

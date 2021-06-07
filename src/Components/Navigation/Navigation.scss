@@ -10,7 +10,7 @@
   }
 }
 
-.navigation_item, {
+.navigation_item,.find_users {
   a {
     color: #5d5d5d;
     text-decoration: none;
@@ -35,5 +35,11 @@
     font-size: 30px;
     padding: 5px;
   }
-
+}
+.navigation_Find_Users {
+  margin-top: 30px;
+  .find_users {
+    font-size: 20px;
+    padding: 10px;
+  }
 }

@@ -13,8 +13,10 @@ const My_Posts = (props) => {
 
     let addPost = () => {
         let text = newPostElement.current.value;
-        props.addNewPost(text);
-        newPostElement.current.value = '';
+        if (text !== ''){
+            props.addNewPost(text);
+            newPostElement.current.value = '';
+        }
     }
 
     return (

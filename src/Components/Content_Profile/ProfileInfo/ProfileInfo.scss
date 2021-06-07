@@ -3,17 +3,33 @@
   height: 250px;
 
 }
-.content_profile{
+
+.content_profile {
   display: flex;
   margin: 10px;
-  .content_bio{
-    margin-left: 20px;
+
+  .content_profileImage {
+    width: 150px;
+    height: 150px;
+    border-radius: 5%;
+
+  }
+
+  .content_bio {
+    margin-left: 25px;
+    flex-grow: 2;
+  }
+
+  .content_contact {
+    display: flex;
+    align-self: flex-end;
+    justify-content: center;
+    flex-grow: 1;
+
+
   }
 }
 
-.content_profileImage {
-  width: 150px;
-  height: 150px;
-  border-radius: 5%;
-}
+
+
 

@@ -35,7 +35,6 @@ const Dialogs = (props) => {
                               ref={addMessage}
                     />
                         <button onClick={newMessageElement} className={'button_send_message'}> Send</button>
-
                     </div>
                 </div>
             </div>

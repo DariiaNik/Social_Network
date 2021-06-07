@@ -51,7 +51,10 @@ let initialState = {
                     id: state.messages[state.messages.length-1].id + 1,
                     message: action.message
                 }
-                state.messages.push(newMessage);
+                return  {
+                    ...state,
+                    messages:[...state.messages,newMessage]
+                };
             }
             break;
         default:
