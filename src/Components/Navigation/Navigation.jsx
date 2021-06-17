@@ -34,6 +34,7 @@ const Navigation = (props) => {
                 <NavLink className={'find_users'} to={'/findUsers'}>Find Users</NavLink>
             </div>
             <div className={'navigation_Friends'}>
+
                 <div className={'friend_title'}>Friends</div>
                 {FriendElem}
             </div>

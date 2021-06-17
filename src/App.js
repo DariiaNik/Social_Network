@@ -10,6 +10,7 @@ import NavigationContainer from "./Components/Navigation/NavigationContainer";
 import FindUsersContainer from "./Components/FindUsers/FindUsersContainer";
 import ProfileContainer from "./Components/Content_Profile/ProfileContainer";
 import HeaderContainer from "./Components/Header/HeaderContainer";
+import Login from "./Components/Login/Login";
 
 
 const App = () => {
@@ -30,6 +31,8 @@ const App = () => {
                        render={() => <Setting/>}/>
                 <Route path='/findUsers'
                        render={() => <FindUsersContainer/>}/>
+                <Route path='/login'
+                       render={() => <Login/>}/>
             </div>
         </div>
     );

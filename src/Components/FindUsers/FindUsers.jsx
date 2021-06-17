@@ -37,26 +37,18 @@ const FindUsers = (props) => {
                         <div>
                             <NavLink to={'/profile/'+ u.id} >
                                 <img className={'avatar'}
-                                     src={u.photos.small != null ? u.photos.small : 'https://t3.ftcdn.net/jpg/02/72/37/08/360_F_272370853_Zaoj8QgRZ73HpCjD5XGO1gDdknlCRQeq.jpg'}/>
+                                     src={u.photos.small != null
+                                         ? u.photos.small
+                                         : 'https://t3.ftcdn.net/jpg/02/72/37/08/360_F_272370853_Zaoj8QgRZ73HpCjD5XGO1gDdknlCRQeq.jpg'}/>
                             </NavLink>
                         </div>
                         <div>
                             {u.followed
-                                ? <button className={'buttonFollow'} onClick={() => {
-                                   userAPI.followDelete(u.id)
-                                        .then(data => {
-                                            if (data.resultCode === 0){
-                                                props.followToggle(u.id)
-                                            }
-                                        })
+                                ? <button disabled={props.followingProgress.some(id => id === u.id)} className={'buttonFollow'} onClick={() => {
+                                    props.followDelete(u.id);
                                 }}>Unfollow</button>
-                                : <button className={'buttonFollow'} onClick={() => {
-                                    userAPI.followPost(u.id)
-                                        .then(data => {
-                                            if (data.resultCode === 0 ){
-                                                props.followToggle(u.id)
-                                            }
-                                        })
+                                : <button disabled={props.followingProgress.some(id => id === u.id)} className={'buttonFollow'} onClick={() => {
+                                    props.followPost(u.id);
                                 }}>Follow</button>}
                         </div>
                     </div>

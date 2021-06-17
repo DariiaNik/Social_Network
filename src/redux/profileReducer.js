@@ -1,4 +1,6 @@
 import {act} from "@testing-library/react";
+import {userAPI} from "../api/userAPI";
+import {followingProgressToggle, followToggle} from "./findUsersReducer";
 
 const ADD_POST = 'ADD-POST';
 const COUNT_LIKES = 'COUNT-LIKES';
@@ -55,6 +57,16 @@ const profileReducer = (state = initialState, action) => {
 export const addPostActionCreator = (text) => ({type: ADD_POST, text: text})
 export const likeActionCreator = (id) => ({type: COUNT_LIKES, outId: id})
 export const setUsersProfile = (profile) => ({type: SET_USERS_PROFILE, profile})
+
+
+
+export const getProfileTC = (userId) => {
+    return (dispatch) => {
+        userAPI.getProfile(userId).then(response => {
+            dispatch(setUsersProfile(response.data));
+        })
+    }
+}
 
 
 export default profileReducer;

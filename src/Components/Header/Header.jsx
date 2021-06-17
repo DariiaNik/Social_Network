@@ -8,7 +8,7 @@ const Header = (props)=>{
             <img className={'header_logo'}
                  src='https://images.vexels.com/media/users/3/137349/isolated/preview/7b8717630942d7fb84ae3c74b0602c0f-heart-logo-minimalism-by-vexels.png'/>
             <div className={'loginBlock'}>
-                {props.isAuth ? props.login : <NavLink to={'/login'}>Login</NavLink> }
+                {props.isAuth ? props.login : <NavLink to={'/Login'}>Login</NavLink> }
             </div>
         </header>
     )

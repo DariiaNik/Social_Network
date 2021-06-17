@@ -1,16 +1,16 @@
 import React from "react";
 import {connect} from "react-redux";
 import {
+    findUsers, followPost,
+    followingProgressToggle,
     followToggle,
     setCurrentPage,
-    setCurrentPageToLeft, setCurrentPageToRight,
-    setTotalUsersCount,
-    setUsers, toggleIsFetching
+    setCurrentPageToLeft, setCurrentPageToRight, followDelete, onPageChanged,
+
 } from "../../redux/findUsersReducer";
 import FindUsers from "./FindUsers";
 import './FindUsers.scss'
 import Preloader from "../common/preloader/preloader";
-import {userAPI} from "../../api/userAPI";
 
 
 
@@ -21,22 +21,13 @@ class FindUsersContainer extends React.Component {
     }
 
     componentDidMount() {
-        this.props.toggleIsFetching(true);
-       userAPI.getUsers(this.props.currentPage,this.props.pageSize).then(data => {
-                this.props.toggleIsFetching(false);
-                this.props.setUsers(data.items);
-                this.props.setTotalUsersCount(data.totalCount);
-            })
 
+        this.props.findUsers(this.props.currentPage, this.props.pageSize);
     }
 
     onPageChanged = (pageNumber) => {
-        this.props.toggleIsFetching(true);
-        this.props.setCurrentPage(pageNumber);
-        userAPI.getUsers(pageNumber,this.props.pageSize).then(data => {
-                this.props.toggleIsFetching(false);
-                this.props.setUsers(data.items)
-            })
+
+        this.props.onPageChanged(pageNumber, this.props.pageSize);
     }
 
     render() {
@@ -51,6 +42,10 @@ class FindUsersContainer extends React.Component {
                 onPageChanged={this.onPageChanged}
                 followToggle={this.props.followToggle}
                 users={this.props.users}
+                followingProgressToggle={this.props.followingProgressToggle}
+                followingProgress={this.props.followingProgress}
+                followPost = {this.props.followPost}
+                followDelete = {this.props.followDelete}
             />
         </>
     }
@@ -63,6 +58,7 @@ let mapStateToProps = (state) => {
         totalUsersCount: state.findUsers.totalUsersCount,
         currentPage: state.findUsers.currentPage,
         isFetching: state.findUsers.isFetching,
+        followingProgress: state.findUsers.followingProgress,
     }
 }
 
@@ -70,12 +66,13 @@ let mapStateToProps = (state) => {
 export default connect(
     mapStateToProps,
     {
-        setUsers,
         followToggle,
         setCurrentPage,
-        setTotalUsersCount,
         setCurrentPageToLeft,
         setCurrentPageToRight,
-        toggleIsFetching
+        followingProgressToggle,
+        findUsers,
+        followPost,followDelete,
+        onPageChanged
     }
 )(FindUsersContainer);

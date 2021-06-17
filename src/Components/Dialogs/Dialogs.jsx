@@ -2,6 +2,7 @@ import React from 'react';
 import './Dialogs.scss';
 import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
+import {Redirect} from "react-router";
 
 
 const Dialogs = (props) => {
@@ -19,6 +20,8 @@ const Dialogs = (props) => {
         props.newMessageElement(message);
         addMessage.current.value = '';
     }
+
+
     return (
         <div>
             <div className={'title'}>Dialogs</div>
