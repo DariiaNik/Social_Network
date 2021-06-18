@@ -11,6 +11,8 @@ import {
 import FindUsers from "./FindUsers";
 import './FindUsers.scss'
 import Preloader from "../common/preloader/preloader";
+import {compose} from "redux";
+import {WithAuthRedirect} from "../../HOC/withAuthRedirect";
 
 
 
@@ -63,16 +65,20 @@ let mapStateToProps = (state) => {
 }
 
 
-export default connect(
-    mapStateToProps,
-    {
-        followToggle,
-        setCurrentPage,
-        setCurrentPageToLeft,
-        setCurrentPageToRight,
-        followingProgressToggle,
-        findUsers,
-        followPost,followDelete,
-        onPageChanged
-    }
-)(FindUsersContainer);
+
+export default compose(
+    connect(
+        mapStateToProps,
+        {
+            followToggle,
+            setCurrentPage,
+            setCurrentPageToLeft,
+            setCurrentPageToRight,
+            followingProgressToggle,
+            findUsers,
+            followPost,followDelete,
+            onPageChanged
+        }
+    ),
+    WithAuthRedirect
+)(FindUsersContainer)
