@@ -4,6 +4,7 @@ import Preloader from "../../common/preloader/preloader";
 import facebook from '../../../Pictures/icons8-facebook-64.png'
 import instagram from '../../../Pictures/icons8-instagram-64.png'
 import twitter from '../../../Pictures/icons8-twitter-64.png'
+import ProfileStatus from "./ProfileStatus";
 
 
 const ProfileInfo = (props) => {
@@ -20,10 +21,13 @@ const ProfileInfo = (props) => {
             </div>
             <div className={'content_profile'}>
                 <img className={'content_profileImage'}
-                     src={props.profile.photos.small}/>
+                     src={props.profile.photos.small != null
+                         ? props.profile.photos.small
+                         : 'https://t3.ftcdn.net/jpg/02/72/37/08/360_F_272370853_Zaoj8QgRZ73HpCjD5XGO1gDdknlCRQeq.jpg'}
+                />
                 <div className={'content_bio'}>
                     <h3>{props.profile.fullName}</h3>
-                    <p>{props.profile.aboutMe}</p>
+                    <ProfileStatus profile={props.profile} status={props.status} updateUserStatusTC={props.updateUserStatusTC}/>
                 </div>
                 <div className={'content_contact'}>
                     <div><a href={props.profile.contacts.facebook?.match(/http/i)? props.profile.contacts.facebook: ('https://'+props.profile.contacts.facebook)}><img src={facebook}/></a></div>

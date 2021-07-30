@@ -1,6 +1,5 @@
 import './App.scss';
 import React from 'react'
-import Header from "./Components/Header/Header";
 import {Route} from "react-router-dom";
 import News from "./Components/News/News";
 import Music from "./Components/Music/Music";

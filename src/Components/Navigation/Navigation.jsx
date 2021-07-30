@@ -9,7 +9,7 @@ const Navigation = (props) => {
 
     let FriendElem =
        props.friends.map(friend => (
-            <Friend name={friend.name} photo={friend.photo} id={friend.id}/>))
+            <Friend key={friend.id} name={friend.name} photo={friend.photo} id={friend.id}/>))
 
     return (
         <nav className={'sidebar'}>

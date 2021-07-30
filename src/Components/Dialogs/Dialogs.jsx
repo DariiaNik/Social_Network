@@ -8,10 +8,10 @@ import {Redirect} from "react-router";
 const Dialogs = (props) => {
 
     let dialogsElement =
-        props.dialogs.map(dialog => (<Dialog name={dialog.name} id={dialog.id} photo={dialog.photo}/>))
+        props.dialogs.map(dialog => (<Dialog key={dialog.id} name={dialog.name} id={dialog.id} photo={dialog.photo}/>))
 
     let messageElement =
-        props.messages.map(message => <Message message={message.message}/>)
+        props.messages.map(message => <Message key={message.id} message={message.message}/>)
 
     let addMessage = React.createRef();
 
@@ -33,7 +33,7 @@ const Dialogs = (props) => {
                     {messageElement}
                     <div className={'add_message'}>
                     <textarea className={'area_add_message'}
-                              rows={'5'} cols={'90'}
+                              rows={'5'}
                               placeholder={'Write new message '}
                               ref={addMessage}
                     />

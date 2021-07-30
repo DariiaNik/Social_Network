@@ -1,0 +1,35 @@
+.add_message,.add_post{
+  background-color: #f8f8f8;
+  margin-top: 80px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  justify-content: center;
+}
+
+.area_add_message,.area_add_post {
+  display: flex;
+  outline: none;
+  resize: none;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 0 auto;
+  width: 95%;
+
+}
+.button_send_message,.button_add_post {
+  height: 30px;
+  width: 80px;
+  border-width: .1rem;
+  border-style: solid;
+  border-color: #808080;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: transparent;
+  outline: none;
+  margin: 10px;
+
+  &:hover {
+    border-color: #f6c1ca;
+  }
+}

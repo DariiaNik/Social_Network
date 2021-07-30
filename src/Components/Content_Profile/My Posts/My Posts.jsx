@@ -1,13 +1,14 @@
 import React from 'react'
 import './My Posts.scss'
 import Post from "./Post/Post";
+import Dialog from "../../Dialogs/Dialog/Dialog";
 
 
 
 const My_Posts = (props) => {
 
     let postElement = props.posts.map(post => (
-        <Post message={post.text} likes={post.likes} id={post.id} like={props.like}/>));
+        <Post key={post.id} message={post.text} likes={post.likes} id={post.id} like={props.like}/>));
 
     let newPostElement = React.createRef();
 
@@ -25,7 +26,7 @@ const My_Posts = (props) => {
             <div>
                 <div className={'add_post'}>
                     <textarea className={'area_add_post'}
-                              rows={'5'} cols={'119'}
+                              rows={'5'}
                               placeholder={'Write new post '}
                               ref={newPostElement}
                     />

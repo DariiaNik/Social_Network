@@ -2,7 +2,6 @@ import React from "react";
 import Left from "../../Pictures/icons8-left-24.png";
 import Right from "../../Pictures/icons8-right-24.png";
 import {NavLink} from "react-router-dom";
-import {userAPI} from "../../api/userAPI";
 
 
 const FindUsers = (props) => {
@@ -73,7 +72,7 @@ const FindUsers = (props) => {
                 }}><img src={Left}/></div>
                 <div className={'pages'}>
                     {pages.map(p => {
-                        return <div className={props.currentPage === p && 'selectedPage'}
+                        return <div key={p.id} className={props.currentPage === p && 'selectedPage'}
                                     onClick={(e) => {
                                         if (p !== ' ... ') {
                                             props.onPageChanged(p)

@@ -1,10 +1,11 @@
 import {act} from "@testing-library/react";
-import {userAPI} from "../api/userAPI";
+import {profileAPI, userAPI} from "../api/userAPI";
 import {followingProgressToggle, followToggle} from "./findUsersReducer";
 
 const ADD_POST = 'ADD-POST';
 const COUNT_LIKES = 'COUNT-LIKES';
 const SET_USERS_PROFILE = 'SET_USERS_PROFILE';
+const SET_USERS_STATUS = 'SET_USERS_STATUS';
 
 let initialState = {
     posts: [
@@ -12,6 +13,7 @@ let initialState = {
         {id: 1, text: 'It\'s my first post', likes: 54},
     ],
     profile: null,
+    status: 'Hello',
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -46,7 +48,12 @@ const profileReducer = (state = initialState, action) => {
         }
         case SET_USERS_PROFILE : {
             return {
-                ...state, profile:action.profile
+                ...state, profile: action.profile
+            }
+        }
+        case SET_USERS_STATUS : {
+            return {
+                ...state, status: action.status
             }
         }
         default:
@@ -57,15 +64,30 @@ const profileReducer = (state = initialState, action) => {
 export const addPostActionCreator = (text) => ({type: ADD_POST, text: text})
 export const likeActionCreator = (id) => ({type: COUNT_LIKES, outId: id})
 export const setUsersProfile = (profile) => ({type: SET_USERS_PROFILE, profile})
-
+export const setUserStatus = (status) => ({type: SET_USERS_STATUS, status})
 
 
 export const getProfileTC = (userId) => {
     return (dispatch) => {
-        userAPI.getProfile(userId).then(response => {
+        profileAPI.getProfile(userId).then(response => {
             dispatch(setUsersProfile(response.data));
         })
     }
+}
+
+export const getUserStatusTC = (userId) => {
+    return (dispatch) => {
+        profileAPI.getStatus(userId).then(response => {
+            dispatch(setUserStatus(response.data));
+        })
+    }
+}
+export const updateUserStatusTC = (status) => (dispatch) => {
+    profileAPI.updateStatus(status)
+        .then(response => {
+            dispatch(setUserStatus(status));
+        })
+
 }
 
 
