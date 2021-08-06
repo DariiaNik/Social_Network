@@ -1,0 +1,85 @@
+
+.block {
+  display: flex;
+  margin: 20px;
+
+  .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+  }
+
+  .buttonFollow {
+    height: 30px;
+    width: 80px;
+    border-width: .1rem;
+    border-style: solid;
+    border-color: #808080;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: #f5f3f3;
+    outline: none;
+    margin-top: 5px;
+
+    &:hover {
+      background-color: #b1a1a3;
+    }
+  }
+}
+
+.information {
+  display: flex;
+  margin-left: 20px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+  border: 1px solid #a7a6a6;
+  width: 60%;
+  height: 20%;
+  justify-content: space-between;
+
+  .information_main_name {
+    font-size: 25px;
+  }
+
+  .information_main_status {
+    padding-top: 20px;
+  }
+
+  .information_location {
+    font-size: 20px;
+    padding: 5px;
+  }
+}
+
+.pagination {
+  display: flex;
+  font-size: 20px;
+  justify-content: center;
+
+  .pageButton {
+    padding: 12px 5px 0;
+    cursor: pointer;
+  }
+}
+
+.pages div {
+  display: inline-block;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.selectedPage {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 25px;
+  color: white;
+}
+
+
+
+
+
+
+
+

@@ -1,15 +1,15 @@
 import './App.scss';
 import React from 'react'
 import {Route} from "react-router-dom";
-import News from "./Components/News/News";
-import Music from "./Components/Music/Music";
-import Setting from "./Components/Setting/Setting";
-import DialogsContainer from "./Components/Dialogs/DialogsContainer";
-import NavigationContainer from "./Components/Navigation/NavigationContainer";
-import FindUsersContainer from "./Components/FindUsers/FindUsersContainer";
-import ProfileContainer from "./Components/Content_Profile/ProfileContainer";
-import HeaderContainer from "./Components/Header/HeaderContainer";
-import Login from "./Components/Login/Login";
+import News from "./components/news/News";
+import Music from "./components/music/Music";
+import Setting from "./components/Setting/Setting";
+import DialogsContainer from "./components/dialogs/DialogsContainer";
+import NavigationContainer from "./components/navigation/NavigationContainer";
+import FindUsersContainer from "./components/findUsers/FindUsersContainer";
+import ProfileContainer from "./components/contentProfile/ProfileContainer";
+import HeaderContainer from "./components/header/HeaderContainer";
+import Login from "./components/login/Login";
 
 
 const App = () => {

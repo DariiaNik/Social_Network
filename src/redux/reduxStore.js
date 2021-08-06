@@ -7,11 +7,11 @@ import authReducer from "./authReducer";
 import thunkMiddleware from "redux-thunk"
 
 let reducers = combineReducers({
-    profilePage:profileReducer,
-    messagesPage:dialogsReducer,
-    sidebar:sidebarReducer,
-    findUsers:findUsersReducer,
-    auth:authReducer
+    profilePage: profileReducer,
+    messagesPage: dialogsReducer,
+    sidebar: sidebarReducer,
+    findUsers: findUsersReducer,
+    auth: authReducer
 });
 
 let store = createStore(reducers, applyMiddleware(thunkMiddleware));

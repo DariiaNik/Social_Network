@@ -1,5 +1,3 @@
-import profileReducer from "./profileReducer";
-
 const NEW_MESSAGE = 'NEW-POST';
 
 let initialState = {
@@ -43,17 +41,17 @@ let initialState = {
     ]
 }
 
- const dialogsReducer = (state = initialState,action) => {
+const dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
         case NEW_MESSAGE:
             if (action.message !== '') {
                 let newMessage = {
-                    id: state.messages[state.messages.length-1].id + 1,
+                    id: state.messages[state.messages.length - 1].id + 1,
                     message: action.message
                 }
-                return  {
+                return {
                     ...state,
-                    messages:[...state.messages,newMessage]
+                    messages: [...state.messages, newMessage]
                 };
             }
             break;

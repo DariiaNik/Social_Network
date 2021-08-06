@@ -1,0 +1,21 @@
+$font: 'Raleway', sans-serif;
+
+.title {
+  font-size: 30px;
+  font-family: $font;
+  padding: 5px;
+}
+
+.dialogs {
+  display: grid;
+  grid-template-columns: 3fr 10fr;
+  font-family: $font;
+  font-size: 20px;
+
+  .dialogs_list {
+    background-color: rgba(153, 153, 153, 0.2);
+    border-radius: 10px;
+  }
+
+}
+

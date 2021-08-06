@@ -1,6 +1,7 @@
 import * as axios from "axios";
 
 
+// noinspection JSUnresolvedFunction
 const instance = axios.create({
     withCredentials: true,
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
@@ -17,13 +18,13 @@ export const userAPI = {
             });
     },
     followPostAPI(id) {
-        return  instance.post(`follow/${id}`)
+        return instance.post(`follow/${id}`)
             .then(response => {
                 return response.data
             })
     },
     followDeleteAPI(id) {
-        return  instance.delete(`follow/${id}`)
+        return instance.delete(`follow/${id}`)
             .then(response => {
                 return response.data
             })
@@ -32,20 +33,20 @@ export const userAPI = {
 
 export const profileAPI = {
     getProfile(userId) {
-        return instance.get('profile/'+ userId);
+        return instance.get('profile/' + userId);
     },
     getStatus(userId) {
-        return instance.get('profile/status/'+ userId);
+        return instance.get('profile/status/' + userId);
     },
-    updateStatus(status){
+    updateStatus(status) {
         return instance.put('profile/status', {status: status});
     }
 }
 
- export const authAPI = {
-     authMe() {
-         return instance.get(`auth/me`);
-     }
+export const authAPI = {
+    authMe() {
+        return instance.get(`auth/me`);
+    }
 
 }
 

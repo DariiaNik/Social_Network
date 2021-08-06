@@ -1,6 +1,4 @@
-import {act} from "@testing-library/react";
-import {profileAPI, userAPI} from "../api/userAPI";
-import {followingProgressToggle, followToggle} from "./findUsersReducer";
+import {profileAPI} from "../api/userAPI";
 
 const ADD_POST = 'ADD-POST';
 const COUNT_LIKES = 'COUNT-LIKES';
@@ -84,7 +82,7 @@ export const getUserStatusTC = (userId) => {
 }
 export const updateUserStatusTC = (status) => (dispatch) => {
     profileAPI.updateStatus(status)
-        .then(response => {
+        .then(() => {
             dispatch(setUserStatus(status));
         })
 

@@ -1,6 +1,5 @@
 import React from 'react'
 import profileReducer from "./profileReducer";
-import {act} from "@testing-library/react";
 import dialogsReducer from "./dialogsReducer";
 import sidebarReducer from "./sidebarReducer";
 
@@ -85,7 +84,7 @@ let store = {
     dispatch(action) {
         this._state.profilePage = profileReducer(this._state.profilePage, action);
         this._state.messagesPage = dialogsReducer(this._state.messagesPage, action);
-        this._state.sidebar = sidebarReducer(this._state.sidebar, action);
+        this._state.sidebar = sidebarReducer(this._state.sidebar);
 
         this._callSubscriber(this._state);
     }

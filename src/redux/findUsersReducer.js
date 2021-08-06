@@ -83,7 +83,7 @@ export const toggleIsFetching = (isFetching) => ({type: FETCHING_TOGGLE, isFetch
 export const followingProgressToggle = (isFetching, userId) => ({type: FOLLOWING_PROGRESS_TOGGLE, isFetching, userId})
 
 
-export const findUsers = (currentPage,pageSize) => {
+export const findUsers = (currentPage, pageSize) => {
 
     return (dispatch) => {
 
@@ -96,7 +96,7 @@ export const findUsers = (currentPage,pageSize) => {
         })
     }
 }
-export const onPageChanged = (pageNumber,pageSize) => {
+export const onPageChanged = (pageNumber, pageSize) => {
 
     return (dispatch) => {
 
@@ -116,11 +116,11 @@ export const followPost = (userId) => {
         dispatch(followingProgressToggle(true, userId));
 
         userAPI.followPostAPI(userId).then(data => {
-                if (data.resultCode === 0 ){
-                    dispatch(followToggle(userId))
-                }
-                dispatch(followingProgressToggle(false,userId));
-            })
+            if (data.resultCode === 0) {
+                dispatch(followToggle(userId))
+            }
+            dispatch(followingProgressToggle(false, userId));
+        })
     }
 }
 export const followDelete = (userId) => {
@@ -130,10 +130,10 @@ export const followDelete = (userId) => {
         dispatch(followingProgressToggle(true, userId));
 
         userAPI.followDeleteAPI(userId).then(data => {
-            if (data.resultCode === 0 ){
+            if (data.resultCode === 0) {
                 dispatch(followToggle(userId))
             }
-            dispatch(followingProgressToggle(false,userId));
+            dispatch(followingProgressToggle(false, userId));
         })
     }
 }
